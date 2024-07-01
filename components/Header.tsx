@@ -1,7 +1,16 @@
+"use client"
 import React from "react";
 import Image from "next/image";
 
-import { BellIcon, ChatBubbleLeftIcon, GlobeAltIcon, HomeIcon, PlusIcon, SparklesIcon, SpeakerWaveIcon } from "@heroicons/react/24/outline";
+import {
+  BellIcon,
+  ChatBubbleLeftIcon,
+  GlobeAltIcon,
+  HomeIcon,
+  PlusIcon,
+  SparklesIcon,
+  SpeakerWaveIcon,
+} from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { VideoCameraIcon } from "@heroicons/react/24/outline";
 
@@ -38,28 +47,54 @@ const Header = () => {
             d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
           />
         </svg>
-        <input type="text" placeholder="Search Reddit" className="flex-1 bg-transparent outline-none"/>
+        <input
+          type="text"
+          placeholder="Search Reddit"
+          className="flex-1 bg-transparent outline-none"
+        />
         <button type="submit" hidden />
       </form>
-      <div className="flex text-gray-500 items-center space-x-2 lg:inline-flex">
-        <SparklesIcon className="icon"/>
-        <GlobeAltIcon className="icon"/>
-        <VideoCameraIcon className="icon"/>
-        <hr className="h-10 border border-gray-100"/>
-        <ChatBubbleLeftIcon className="icon"/>
-        <BellIcon className="icon"/>
-        <PlusIcon className="icon"/>
-        <SpeakerWaveIcon className="icon"/>
+      <div className=" hidden text-gray-500 items-center space-x-2 lg:inline-flex">
+        <SparklesIcon className="icon" />
+        <GlobeAltIcon className="icon" />
+        <VideoCameraIcon className="icon" />
+        <hr className="h-10 border border-gray-100" />
+        <ChatBubbleLeftIcon className="icon" />
+        <BellIcon className="icon" />
+        <PlusIcon className="icon" />
+        <SpeakerWaveIcon className="icon" />
       </div>
-<div className="ml-5 flex items-center lg:hidden">
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-</svg>
+      <div className="ml-5 flex items-center lg:hidden">
+        <div className="icon">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="size-6 "
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+          />
+        </svg>
+        </div>
+      </div>
 
-</div>
-<div>
-    
-</div>
+      {/* Sign in part */}
+      <div className="hidden lg:flex items-center border-gray-100 p-2 cursor-pointer space-x-2">
+        <div className="relative h-5 w-5 flex-shrink-0">
+          <Image
+            src="https://links.papareact.com/23l"
+            layout="fill"
+            alt=""
+            objectFit="contain"
+          />
+        </div>
+        <p className="text-gray-400">Sign in</p>
+      </div>
     </div>
   );
 };
