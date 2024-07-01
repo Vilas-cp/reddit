@@ -1,4 +1,4 @@
-"use client"
+
 import React from "react";
 import Image from "next/image";
 
@@ -13,7 +13,8 @@ import {
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { VideoCameraIcon } from "@heroicons/react/24/outline";
-import { signIn } from "next-auth/react";
+import { signIn } from "@/auth";
+import Signin from "./Signin";
 
 const Header = () => {
   return (
@@ -85,17 +86,8 @@ const Header = () => {
       </div>
 
       {/* Sign in part */}
-      <div onClick={()=>signIn} className="hidden lg:flex items-center border-gray-100 p-2 cursor-pointer space-x-2">
-        <div className="relative h-5 w-5 flex-shrink-0">
-          <Image
-            src="https://links.papareact.com/23l"
-            layout="fill"
-            alt=""
-            objectFit="contain"
-          />
-        </div>
-        <p className="text-gray-400">Sign in</p>
-      </div>
+      <Signin/>
+      
     </div>
   );
 };
