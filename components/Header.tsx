@@ -13,6 +13,7 @@ import {
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { VideoCameraIcon } from "@heroicons/react/24/outline";
+import { signIn } from "next-auth/react";
 
 const Header = () => {
   return (
@@ -84,7 +85,7 @@ const Header = () => {
       </div>
 
       {/* Sign in part */}
-      <div className="hidden lg:flex items-center border-gray-100 p-2 cursor-pointer space-x-2">
+      <div onClick={()=>signIn} className="hidden lg:flex items-center border-gray-100 p-2 cursor-pointer space-x-2">
         <div className="relative h-5 w-5 flex-shrink-0">
           <Image
             src="https://links.papareact.com/23l"
