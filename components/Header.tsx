@@ -1,7 +1,9 @@
 
 import React from "react";
 import Image from "next/image";
-
+import { auth } from "@/auth"
+import { signIn } from "@/auth";
+ 
 import {
   BellIcon,
   ChatBubbleLeftIcon,
@@ -13,10 +15,15 @@ import {
 } from "@heroicons/react/24/outline";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import { VideoCameraIcon } from "@heroicons/react/24/outline";
-import { signIn } from "@/auth";
-import Signin from "./Signin";
+import  Signin  from "./Signin";
+import { SignOut } from "./Signout";
 
-const Header = () => {
+
+
+export default async function Header(){
+    const session=await auth();
+    console.log(session);
+
   return (
     <div
       className="flex px-4 py-2 shadow-sm sti
@@ -32,6 +39,9 @@ const Header = () => {
       <div className="flex items-center  mx-7  lg:min-w-[300px]">
         <HomeIcon className="h-5 w-5" />
         <p className="ml-2 flex-1 lg:inline">Home</p>
+        {/*session name*/}
+       {/*} {session?.user?.name && <p> {session?.user?.name} </p>} */}
+
         <ChevronDownIcon className="h-5 w-5" />
       </div>
       <form className="flex flex-1 items-center space-x-2 border rounded-lg border-gray-200 bg-gray-100 px-3 py-1">
@@ -86,10 +96,31 @@ const Header = () => {
       </div>
 
       {/* Sign in part */}
-      <Signin/>
-      
+     
+      {/*<div><form
+    action={async () => {
+      "use server"
+      await signIn("reddit")
+    }}
+  >
+    <div className="hidden lg:flex items-center border-gray-100 p-2 cursor-pointer space-x-2">
+      <div className="relative h-5 w-5 flex-shrink-0">
+        <Image
+          src="https://links.papareact.com/23l"
+          layout="fill"
+          alt=""
+          objectFit="contain"
+        />
+      </div>
+      <button className="text-gray-400">Sign in</button>
+    </div>
+</form></div>*/}
+{session?(<SignOut/>):(<Signin/>)}
+ 
+
+     
     </div>
   );
 };
 
-export default Header;
+
